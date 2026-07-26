@@ -110,38 +110,6 @@ def resolve_execution_order(tasks: dict[str, Task], target: str) -> list[str]:
     return order
 
 
-# def resolve_execution_order(tasks: dict[str, Task], target: str) -> list[str]:
-#     states: dict[str, str] = {}
-#     order: list[str] = []
-#     path: list[str] = []
-
-#     def visit(name: str) -> None:
-#         if name not in tasks:
-#             raise ValueError(f"Unknown task: {name}")
-#         state = states.get(name, "unvisited")
-
-#         if state == "visited":
-#             return
-
-#         if state == "visiting":
-#             cycle_start = path.index(name)
-#             cycle = path[cycle_start:] + [name]
-#             raise ValueError("Dependency cycle detected: " + " -> ".join(cycle))
-
-#         states[name] = "visiting"
-#         path.append(name)
-
-#         for dependency in tasks[name].dependencies:
-#             visit(dependency)
-
-#         path.pop()
-#         states[name] = "visited"
-#         order.append(name)
-
-#     visit(target)
-#     return order
-
-
 def execute_tasks(tasks: dict[str, Task], order: list[str], dry_run: bool) -> int:
     if dry_run:
         print("Dry Execution Plan:")
