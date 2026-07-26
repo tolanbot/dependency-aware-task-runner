@@ -1,0 +1,27 @@
+{
+  "tasks":{
+    "clean": {
+      "command": ["python3", "scripts/clean.py"],
+      "description": "Remove generated files."
+    },
+    "lint":{
+      "command": ["python3", "scripts/lint.py"],
+      "description": "Format document."
+    },
+    "test": {
+      "command": ["python3", "scripts/test.py"],
+      "depends_on": ["lint", "build"],
+      "description": "Verify the generated output."
+    },
+    "build": {
+      "command": ["python3", "scripts/build.py"],
+      "depends_on": ["clean", "test"],
+      "description": "Generate the output file."
+    },
+    "package": {
+      "command": ["python3", "scripts/package.py"],
+      "depends_on": ["test"],
+      "description": "Create the release archive."
+    }
+  }
+}
