@@ -1,0 +1,15 @@
+# Build and distribution artifacts
+dist/
+build/
+
+# Python caching directories
+__pycache__/
+**/__pycache__/
+
+# Python runtime and environment configurations
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
