@@ -13,6 +13,7 @@ def main() -> int:
             "Error: The 'Black' code formatter is not installed or not in your PATH",
             file=sys.stderr,
         )
+        print("Please install it using 'pip install black'", file=sys.stderr)
         return 1
     
     final_returncode = 0
