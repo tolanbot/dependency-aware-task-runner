@@ -13,6 +13,8 @@ def main() -> int:
             "Error: The 'Black' code formatter is not installed or not in your PATH",
             file=sys.stderr,
         )
+        return 1
+    
     final_returncode = 0
     for file_path in PROJECT_ROOT.rglob("*.py"):
         print("Formatting file: {file_path}")
