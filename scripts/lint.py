@@ -1,1 +1,1 @@
-print("linting...")
+print("...linting")

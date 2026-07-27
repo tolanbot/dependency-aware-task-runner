@@ -4,9 +4,14 @@
       "command": ["{python}", "scripts/clean.py"],
       "description": "Remove generated files."
     },
+    "format": {
+        "command": ["{python}", "scripts/format.py"],
+        "description": "Run formatter on all python files."
+    },
     "lint":{
       "command": ["{python}", "scripts/lint.py"],
-      "description": "Format document."
+      "description": "Format document.",
+      "depends_on": ["format"]
     },
     "test": {
       "command": ["{python}", "scripts/test.py"],
