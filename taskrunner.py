@@ -130,7 +130,11 @@ def execute_tasks(tasks: dict[str, Task], order: list[str], dry_run: bool) -> in
 def run_task(task: Task) -> int:
     start = time.perf_counter()
     try:
-        result = subprocess.run(task.command)
+        command = [
+            sys.executable if argument == "{python}" else argument
+            for argument in task.command
+        ]
+        result = subprocess.run(command)
     except FileNotFoundError:
         print(
             f"Task '{task.name}' failed\ncommand not found: {task.command[0]}",
