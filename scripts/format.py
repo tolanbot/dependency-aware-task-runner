@@ -15,13 +15,15 @@ def main() -> int:
         )
         print("Please install it using 'pip install black'", file=sys.stderr)
         return 1
-    
+
     final_returncode = 0
+
     for file_path in PROJECT_ROOT.rglob("*.py"):
-        print("Formatting file: {file_path}")
+        print(f"Formatting file: {file_path}")
         result = subprocess.run(["black", file_path])
         if result.returncode != 0:
             final_returncode = result.returncode
+
     return final_returncode
 
 
