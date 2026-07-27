@@ -1,4 +1,5 @@
 import subprocess
+import shutil
 import sys
 from pathlib import Path
 
@@ -7,6 +8,11 @@ print(f"PROJECT_ROOT: {PROJECT_ROOT}")
 
 
 def main() -> int:
+    if not shutil.which("black"):
+        print(
+            "Error: The 'Black' code formatter is not installed or not in your PATH",
+            file=sys.stderr,
+        )
     final_returncode = 0
     for file_path in PROJECT_ROOT.rglob("*.py"):
         print("Formatting file: {file_path}")
