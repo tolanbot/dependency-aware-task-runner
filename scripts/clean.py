@@ -8,6 +8,7 @@ DIRECTORIES_TO_REMOVE = [
     PROJECT_ROOT / "dist",
     PROJECT_ROOT / "build",
     PROJECT_ROOT / "__pycache__",
+    PROJECT_ROOT / "tests" / "__pycache__",
 ]
 
 
